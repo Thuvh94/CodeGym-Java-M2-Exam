@@ -12,8 +12,10 @@ public class DirectoryBookManage implements iManage<DirectoryBook> {
     public static List<DirectoryBook> directoryBookList = new ArrayList<>();
     static{
         //public DirectoryBook(String name, long phoneNumber, String group, boolean isMale, String address, LocalDate birthday, String email)
-        directoryBookList.add(new DirectoryBook("Ha",913970994L,"CodeGym",false,"HaNoi",LocalDate.parse("1994-10-23"),"thuvh@gmail.com"));
-        directoryBookList.add(new DirectoryBook("Tu",913970995L,"FTU",true,"HaNam",LocalDate.parse("1994-10-24"),"kienvm@gmail.com"));
+        directoryBookList.add(new DirectoryBook("Viet",913970994L,"CodeGym",false,"HaNoi",LocalDate.parse("1994-10-23"),"thuvh@gmail.com"));
+        directoryBookList.add(new DirectoryBook("Nam",913970995L,"FTU",true,"HaNam",LocalDate.parse("1994-10-24"),"kienvm@gmail.com"));
+        directoryBookList.add(new DirectoryBook("Vo",913970996L,"CVA",true,"NamDinh",LocalDate.parse("1994-10-24"),"codegym@gmail.com"));
+        directoryBookList.add(new DirectoryBook("Dich",913970997L,"HD",true,"Can Tho",LocalDate.parse("1994-10-24"),"cantho@gmail.com"));
     }
     @Override
     public void add(DirectoryBook item) {
@@ -91,25 +93,7 @@ public class DirectoryBookManage implements iManage<DirectoryBook> {
                 directoryBookString = line.split(",");
                 System.out.println("Directory Book: name" + directoryBookString[0]+"phone"+directoryBookString[1]+"group"+directoryBookString[2]
                 +"Sex: " + directoryBookString[3]+"Address"+directoryBookString[4]+"Birthday"+directoryBookString[5]+"mail"+directoryBookString[6]);
-//                DirectoryBook directoryBookFromFile = new DirectoryBook();
-//                String phoneString = directoryBookString[0];
-//                Long phone = Long.parseLong(phoneString);
-//                String group = directoryBookString[1];
-//                String name = directoryBookString[2];
-//                String sexType = directoryBookString[3];
-//                boolean isMale = false;
-//                if(sexType.equals("Nam")){
-//                    isMale = true;
-//                }
-//                else if  (sexType.equals("Nữ")){
-//                    isMale = false;
-//                }
-//                String address = directoryBookString[4];
-//                String birthdayString = directoryBookString[5];
-//                LocalDate birthday = LocalDate.parse(birthdayString);
-//                String mail = directoryBookString[6];
-//                DirectoryBook book = new DirectoryBook(name,phone,group,isMale,address,birthday,mail);
-//                directoryBookList.add(book);
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -130,3 +114,22 @@ public class DirectoryBookManage implements iManage<DirectoryBook> {
         }
     }
 }
+//                DirectoryBook directoryBookFromFile = new DirectoryBook();
+//                String phoneString = directoryBookString[0];
+//                Long phone = Long.parseLong(phoneString);
+//                String group = directoryBookString[1];
+//                String name = directoryBookString[2];
+//                String sexType = directoryBookString[3];
+//                boolean isMale = false;
+//                if(sexType.equals("Nam")){
+//                    isMale = true;
+//                }
+//                else if  (sexType.equals("Nữ")){
+//                    isMale = false;
+//                }
+//                String address = directoryBookString[4];
+//                String birthdayString = directoryBookString[5];
+//                LocalDate birthday = LocalDate.parse(birthdayString);
+//                String mail = directoryBookString[6];
+//                DirectoryBook book = new DirectoryBook(name,phone,group,isMale,address,birthday,mail);
+//                directoryBookList.add(book);
