@@ -63,8 +63,21 @@ public class main {
                         String updateAddress = sc.next();
                         System.out.println("Nhập email: ");
                         String updateEmail = sc.next();
-                    }
+                        DirectoryBook updateDirectoryBook =
+                                new DirectoryBook(updateName,inputPhone,updateGroup,updateIsMale,updateAddress,updateEmail);
+                        directoryBookManage.update(inputPhone,updateDirectoryBook);
+                        list = directoryBookManage.findAll();
 
+                    }
+                    else
+                        System.out.println("Không tìm được danh bạ với số điện thoại trên. ");
+                        break;
+                case 4:
+                    System.out.println("===Xóa danh bạ===");
+                    System.out.println("Nhập số điện thoại cần xóa");
+                    long deletePhone = Long.parseLong(sc.next());
+                    directoryBookManage.delete(deletePhone);
+                    list = directoryBookManage.findAll();
 
             }
 
