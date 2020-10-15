@@ -140,28 +140,4 @@ public class main {
         System.out.println("8.thoát");
         System.out.println("Chọn chức năng: ");
     }
-//    public void displayAll(){
-//        DirectoryBookManage list = new DirectoryBookManage();
-//
-//    }
-//    public void displayInputField(){
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Số điện thoại: ");
-//        long phone = Long.parseLong(sc.next());
-//        System.out.println("Nhập nhóm: ");
-//        String group = sc.next();
-//        System.out.println("Nhập họ tên: ");
-//        String name = sc.next();
-//        System.out.println("Giới tính Nam: 0 , Nữ: 1");
-//        int sexType = sc.nextInt();
-//        boolean isMale = false;
-//        if (sexType == 0)
-//            isMale = true;
-//        else
-//            isMale = false;
-//        System.out.println("Nhập địa chỉ: ");
-//        String address = sc.next();
-//        System.out.println("Nhập email: ");
-//        String email = sc.next();
-//    }
 }

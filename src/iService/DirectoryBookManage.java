@@ -129,12 +129,4 @@ public class DirectoryBookManage implements iManage<DirectoryBook> {
             e.printStackTrace();
         }
     }
-
-//    public List<DirectoryBook> getDirectoryBookList() {
-//        return directoryBookList;
-//    }
-//
-//    public void setDirectoryBookList(List<DirectoryBook> directoryBookList) {
-//        this.directoryBookList = directoryBookList;
-//    }
 }
