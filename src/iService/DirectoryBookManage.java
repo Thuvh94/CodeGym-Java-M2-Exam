@@ -9,10 +9,11 @@ import java.util.Date;
 import java.util.List;
 
 public class DirectoryBookManage implements iManage<DirectoryBook> {
-    static List<DirectoryBook> directoryBookList = new ArrayList<>();
+    public static List<DirectoryBook> directoryBookList = new ArrayList<>();
     static{
         //public DirectoryBook(String name, long phoneNumber, String group, boolean isMale, String address, LocalDate birthday, String email)
         directoryBookList.add(new DirectoryBook("Ha",913970994L,"CodeGym",false,"HaNoi",LocalDate.parse("1994-10-23"),"thuvh@gmail.com"));
+        directoryBookList.add(new DirectoryBook("Tu",913970995L,"FTU",true,"HaNam",LocalDate.parse("1994-10-24"),"kienvm@gmail.com"));
     }
     @Override
     public void add(DirectoryBook item) {
@@ -81,32 +82,34 @@ public class DirectoryBookManage implements iManage<DirectoryBook> {
 
     public void readFile(){
         try {
-            FileReader file = new FileReader("data/contacts.csv");
+            FileReader file = new FileReader("G:\\Back-up-Thu\\CodeGym_Module2\\ExamModule2\\src\\data\\contacts.csv");
             BufferedReader bf = new BufferedReader(file);
 
             String line = null;
             String[] directoryBookString;
             while((line = bf.readLine())!=null){
                 directoryBookString = line.split(",");
-                DirectoryBook directoryBookFromFile = new DirectoryBook();
-                String phoneString = directoryBookString[0];
-                Long phone = Long.parseLong(phoneString);
-                String group = directoryBookString[1];
-                String name = directoryBookString[2];
-                String sexType = directoryBookString[3];
-                boolean isMale = false;
-                if(sexType.equals("Nam")){
-                    isMale = true;
-                }
-                else if  (sexType.equals("Nữ")){
-                    isMale = false;
-                }
-                String address = directoryBookString[4];
-                String birthdayString = directoryBookString[5];
-                LocalDate birthday = LocalDate.parse(birthdayString);
-                String mail = directoryBookString[6];
-                DirectoryBook book = new DirectoryBook(name,phone,group,isMale,address,birthday,mail);
-                directoryBookList.add(book);
+                System.out.println("Directory Book: name" + directoryBookString[0]+"phone"+directoryBookString[1]+"group"+directoryBookString[2]
+                +"Sex: " + directoryBookString[3]+"Address"+directoryBookString[4]+"Birthday"+directoryBookString[5]+"mail"+directoryBookString[6]);
+//                DirectoryBook directoryBookFromFile = new DirectoryBook();
+//                String phoneString = directoryBookString[0];
+//                Long phone = Long.parseLong(phoneString);
+//                String group = directoryBookString[1];
+//                String name = directoryBookString[2];
+//                String sexType = directoryBookString[3];
+//                boolean isMale = false;
+//                if(sexType.equals("Nam")){
+//                    isMale = true;
+//                }
+//                else if  (sexType.equals("Nữ")){
+//                    isMale = false;
+//                }
+//                String address = directoryBookString[4];
+//                String birthdayString = directoryBookString[5];
+//                LocalDate birthday = LocalDate.parse(birthdayString);
+//                String mail = directoryBookString[6];
+//                DirectoryBook book = new DirectoryBook(name,phone,group,isMale,address,birthday,mail);
+//                directoryBookList.add(book);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -116,7 +119,7 @@ public class DirectoryBookManage implements iManage<DirectoryBook> {
     }
     public void writeFile(List list){
         try {
-            FileWriter file = new FileWriter("data/contacts.csv");
+            FileWriter file = new FileWriter("G:\\Back-up-Thu\\CodeGym_Module2\\ExamModule2\\src\\data\\writtenList.txt");
             //while ((length = inputFile.read(bt)) > 0)
             for (int i = 0; i < directoryBookList.size(); i++) {
                   file.write(directoryBookList.get(i).toString());

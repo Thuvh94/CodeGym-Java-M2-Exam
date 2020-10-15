@@ -40,8 +40,12 @@ public class main {
                     String address = sc.next();
                     System.out.println("Nhập email: ");
                     String email = sc.next();
+                    System.out.println("=======");
                     System.out.println("Thêm mới thành công");
                     DirectoryBook addedDirectoryBook = new DirectoryBook(name, phone, group, isMale, address, email);
+                    directoryBookManage.add(addedDirectoryBook);
+                    list = directoryBookManage.findAll();
+                    System.out.println(list);
                     break;
                 case 3:
                     System.out.println("===Cập nhật===");
@@ -52,21 +56,26 @@ public class main {
                         String updateGroup = sc.next();
                         System.out.println("Nhập họ tên: ");
                         String updateName = sc.next();
-                        System.out.println("Giới tính Nam: 0 , Nữ: 1");
-                        int updateSexType = sc.nextInt();
+                        System.out.println("Nhập giới tính Nam: 0 , Nữ: 1");
+                        String updateSexType = sc.next();
                         boolean updateIsMale = false;
-                        if (updateSexType == 0)
+                        if (updateSexType.equals("0"))
                             updateIsMale = true;
                         else
                             updateIsMale = false;
                         System.out.println("Nhập địa chỉ: ");
-                        String updateAddress = sc.next();
+                        sc.nextLine();
+                        String updateAddress = sc.nextLine();
+
+                        sc.nextLine();
                         System.out.println("Nhập email: ");
                         String updateEmail = sc.next();
+                        System.out.println("Update thành công");
                         DirectoryBook updateDirectoryBook =
                                 new DirectoryBook(updateName,inputPhone,updateGroup,updateIsMale,updateAddress,updateEmail);
                         directoryBookManage.update(inputPhone,updateDirectoryBook);
                         list = directoryBookManage.findAll();
+                        System.out.println(list);
 
                     }
                     else
@@ -78,14 +87,46 @@ public class main {
                     long deletePhone = Long.parseLong(sc.next());
                     directoryBookManage.delete(deletePhone);
                     list = directoryBookManage.findAll();
-
+                    System.out.println(list);
+                case 5:
+                    System.out.println("===Tìm theo tên===");
+                    System.out.println("Nhập tên cần tìm");
+                    String findName = sc.next();
+                    list = directoryBookManage.findByName(findName);
+                    if(list.size()==0)
+                        System.out.println("Không có");
+                    else
+                        System.out.println(list);
+                    System.out.println("===Tìm theo SĐT===");
+                    System.out.println("Nhập số Đt cần tìm");
+                    String findPhone = sc.next();
+                    System.out.println("===");
+                    DirectoryBook db = directoryBookManage.findByPhone(Long.parseLong(findPhone));
+                    if(db==null)
+                        System.out.println("Không có");
+                    else
+                        System.out.println(db);
+                case 6:
+                    System.out.println("Đọc từ file");
+                    System.out.println("Bạn có chắc muốn xóa toàn bộ trong danh sách và cập nhật từ file? 1: có, 0: không");
+                    String answer = sc.next();
+                    if(answer.equals("1")){
+                        directoryBookManage.readFile();
+                    }
+                    else {
+                         break;
+                    }
+                case 7:
+                    directoryBookManage.writeFile(directoryBookManage.directoryBookList);
+                    System.out.println("Đã ghi file");
+                    break;
+                case 8:
+                    System.out.println("Đã thoát nhé. Bye!");
+                    System.exit(0);
             }
 
         }
-
-
     }
-
     public static void displayMenuList() {
         System.out.println("---CHƯƠNG TRÌNH QUẢN LÝ DANH BẠ--");
         System.out.println("Chọn chức năng theo số (để tiếp tục):");

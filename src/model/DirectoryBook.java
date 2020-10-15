@@ -110,6 +110,7 @@ public class DirectoryBook implements Serializable {
                 ", isMale=" + isMale +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
+                "\n"+
 //                ", facebook='" + facebook + '\'' +
                 '}';
     }
